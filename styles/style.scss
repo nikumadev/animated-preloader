@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: "Gilroy", "Inter", Arial, Helvetica, sans-serif;
+  background-color: #0f0f0f;
+  color: #fafafa;
+}
+
+// scrollbar starts 🎐
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+// scrollbar ends 🎐
+
+// preloader starts 🎐
+
+body.noscroll {
+  overflow: hidden;
+}
+
+.loader {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    height: 16rem;
+    width: 16rem;
+
+    path {
+      fill: transparent;
+      stroke: #fafafa;
+      stroke-width: 0.1;
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+      animation: preloader 4s ease-in-out 1 forwards;
+    }
+
+    @keyframes preloader {
+      0% {
+        stroke-dashoffset: 50;
+      }
+      80% {
+        fill: transparent;
+      }
+      100% {
+        fill: #fafafa;
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  svg {
+    height: 22rem;
+    width: 22rem;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .loader {
+    max-width: 2000px;
+    margin: 0 auto;
+
+    svg {
+      width: 30rem;
+      height: 40rem;
+    }
+  }
+}
+
+// js preloader classes
+
+.content {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.loaded .content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.loaded .loader {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.loaded-remove .loader {
+  display: none;
+}
+
+// preloader ends 🎐
