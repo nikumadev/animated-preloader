@@ -12,7 +12,7 @@ A lightweight, animated SVG preloader for websites, built with HTML, CSS (SCSS),
 - Fully responsive on all screen sizes
 - Lightweight and easy to integrate into any project
 
-## Installation :mem:
+## Installation :memo:
 
 1. Clone or download the repository.
 2. Include the preloader in your HTML:
